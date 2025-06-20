@@ -2,9 +2,25 @@
 .ijwb/
 .bazelbsp/
 .DS_Store
-rust-projet.json
+.cache
+.env
+.vercel
+.output
+.nitro
+/build/
+/api/
+/server/build
+/public/build# Sentry Config File
+.env.sentry-build-plugin
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.tanstack
+rust-project.json
 
 .vscode/*
+!.vscode/settings.json
 !.vscode/tasks.json
 
 # Don't check in lockfile for now. It is unstable.
@@ -17,3 +33,5 @@ MODULE.bazel.lock
 
 # Symlinks created by Bazel into the output tree
 /bazel-*
+
+node_modules/
