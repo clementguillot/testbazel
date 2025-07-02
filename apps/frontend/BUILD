@@ -14,6 +14,7 @@ RUNTIME_DEPS = [
     ":assets",
     ":srcs",
     "//apps/frontend/public",
+    "nitro.config.ts",
     "package.json",
     "postcss.config.mjs",
     "tailwind.config.mjs",
@@ -53,6 +54,7 @@ tsconfig_to_swcconfig.t2s(
 js_library(
     name = "vite.config",
     srcs = [
+        "nitro.config.ts",
         "package.json",
         "postcss.config.mjs",
         "tailwind.config.mjs",
@@ -120,19 +122,6 @@ js_run_binary(
 #     entry_point = "build_smoke_test.js",
 # )
 
-# Produce `+types/<route file>.d.ts` files, see
-# https://reactrouter.com/explanation/type-safety#typegen-command
-js_run_binary(
-    name = "typegen",
-    srcs = RUNTIME_DEPS + NPM_DEPS,
-    args = ["typegen"],
-    chdir = package_name(),
-    out_dirs = [
-        ".vite",
-    ],
-    tool = ":vite",
-)
-
 js_library(
     name = "assets",
     srcs = glob(
@@ -158,7 +147,7 @@ ts_project(
         include = SRC_PATTERNS,
         allow_empty = True,
         exclude = TEST_PATTERNS,
-    ) + [":typegen"],
+    ),
     data = [
         ":assets",
     ],
