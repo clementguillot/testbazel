@@ -43,7 +43,7 @@ crate.from_specs()
 use_repo(crate, "crates")
 
 # Node/pnpm configuration
-bazel_dep(name = "aspect_bazel_lib", version = "2.17.1")
+bazel_dep(name = "aspect_bazel_lib", version = "2.22.5")
 bazel_dep(name = "aspect_rules_lint", version = "1.4.4")
 bazel_dep(name = "aspect_rules_js", version = "2.3.7")
 bazel_dep(name = "aspect_rules_ts", version = "3.6.0")
